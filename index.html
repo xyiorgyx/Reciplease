@@ -7,23 +7,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+          .content-auto {
+            content-visibility: auto;
+          }
+        }
+      </style>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body>
-    <header>
-        <h1>Reciplease</h1>
-        <ul>
-            <li>Featured recipes</li>
-            <li>Drinks</li>
-            <li>Favorites</li>
-        </ul>
+<body class="bg-slate-700">
+    <div>
+        <header class="sticky top-0 z-30 w-full px-2 py-4 shadow-blue-600/20 sm:px-4 bg-slate-800">
+            <nav class="flex text-left justify-between max-w-8xl">
+                <a href="./index.html">
+                    <span class="text-4xl font-extrabold text-slate-500">Reciplease</span>
+                </a>
+                <div class="">
+                    <div class="input-group relative inline-flex flex-wrap items-stretch mb-5 rounded ">
+                        <input type="search"
+                            class="form-control relative left-8 top-2 min-w-4 w-full px-19 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+                    </div>
+                </div>
+                <div class="flex items-center space-x-1 ">
+                    <ul class="hidden space-x-2 md:inline-flex">
+                        <li><a href="./index.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Home</a></li>
+                        <li><a href="./assets/featured/featured.html"
+                                class="px-4 py-2 font-semibold text-gray-500 rounded">Features</a></li>
+                        <li><a href="./assets/drinks/drinks.html"
+                                class="px-4 py-2 font-semibold text-gray-500 rounded">Cocktails</a></li>
+                        <li><a href="./assets/favorites/favorites.html"
+                                class="px-4 py-2 font-semibold text-gray-500 rounded">Favorites</a></li>
+                    </ul>
+                </div>
+    </div>
+    </nav>
     </header>
     <main>
-        <input class="searchBar">
-        <button class="searchBtn">Search</button>
+
         <div class="searchResultContainer"></div>
     </main>
     <footer></footer>
+    </div>
 </body>
 
 </html>
