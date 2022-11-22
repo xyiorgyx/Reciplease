@@ -1,45 +1,66 @@
-var repoList = document.querySelector('.searchResultContainer');
-var fetchButton = document.getElementById('searchBtn');
-var searchBar = document.querySelector('.searchBar')
+var repoList = document.querySelector(".searchResultContainer");
+var fetchButton = document.getElementById("searchBtn");
+var searchBar = document.querySelector(".searchBar");
 var apiKey = "&apiKey=67c5935d239e403fba7b639eaf1d6eaa";
-var userInput = searchBar.value;
-// function getApi() {
-//     var requestUrl = 'https://api.spoonacular.com/recipes/complexSearch?query=' + userinput + apiKey + '&number=2';
-//     fetch(requestUrl)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             console.log(data);
-//             for (var i = 0; i < data.length; i++) {
-//                 var listItem = document.createElement('li');
-//                 listItem.textContent = data[i].html_url;
-//                 repoList.appendChild(listItem);
-//             }
-//         });
-// }
-// getApi();
-// fetchButton.addEventListener('click', getApi);
-
-function handleUserInput() {
-    var collection = document.querySelectorAll('li');
-    //for loope to remove previous li's that the current weather was listed in
-    var searchInput = input.value
-    getApi(searchInput)
+var recipeId =
+  // var userInput = searchBar.value;
+  function handleUserInput() {
+    var searchInput = input.value;
+    getRecipeId(searchInput);
+  };
+function getRecipeId(searchInput) {
+  var requestUrl =
+    "https://api.spoonacular.com/recipes/complexSearch?query=" +
+    "pasta" +
+    apiKey +
+    "&number=20";
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // console.log(data);
+      var recipeNameArray = [
+        data.results[0],
+        data.results[1],
+        data.results[2],
+        data.results[3],
+        data.results[4],
+        data.results[5],
+        data.results[6],
+        data.results[7],
+        data.results[8],
+        data.results[9],
+        data.results[10],
+        data.results[11],
+        data.results[12],
+        data.results[13],
+        data.results[14],
+        data.results[15],
+        data.results[16],
+        data.results[17],
+        data.results[18],
+        data.results[19],
+      ];
+      var recipeId = data.results[0].id;
+      //do a for loop to use the user input as the index for the recipe id var
+      console.log(recipeId);
+      console.log;
+    });
 }
-
-function getApi(searchInput) {
-    var requestUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + searchInput + '&limit=1&appid=b2888db4f0baa774a62c34dc4c426cad';
-    fetch(requestUrl)
-        .then(function (response) {
-            return response.json();
-        }).then(function (data) {
-            // var lat = data[0].lat;
-            // var lon = data[0].lon;
-            // var cityName = data[0].name
-            // saveHistory(cityName)
-            // getCurrentWeather(lat, lon);
-            // getFutureWeather(lat, lon)
-        })
-    console.log(data);
+getRecipeId();
+// need to display the titles and maybe images for the recipe the user searches
+// then the user should be able to click the image or the title
+// from there it will need to grab the id of the recipe and the push it through the get recipeapi function below
+function getRecipeApi(recipeId) {
+  var recipeUrl =
+    "https://api.spoonacular.com/recipes/" + recipeId + "/information";
+  fetch(recipeUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
 }
+getRecipeApi();
