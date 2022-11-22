@@ -19,9 +19,9 @@ function getRecipeId(searchInput) {
       data.results[16], data.results[17], data.results[18], data.results[19]]
       var recipeId = data.results[0].id;
       for (let i = 0; i < recipeNameArray.length; i++) {
-        var recipeTitle = recipeNameArray[i].results.title;
-        var recipePic = recipeNameArray[i].results.image;
-        var recipeId = recipeNameArray[i].results.id;
+        var recipeTitle = recipeNameArray[i].title;
+        var recipePic = recipeNameArray[i].image;
+        var recipeId = recipeNameArray[i].id;
 
         var div = document.createElement('div');
         var liRecipeTitle = document.createElement('li');
@@ -38,7 +38,7 @@ function getRecipeId(searchInput) {
         liRecipeId.textContent = recipeId
 
         // div.setAttribute('class', 'col-2')
-        div.append(liDate, liTemp, liWind, liHumid)
+        div.append(liRecipeTitle, liRecipePic, liRecipeId)
         searchResultContainer.append(div)
       }
     })
