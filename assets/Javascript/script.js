@@ -1,4 +1,4 @@
-var searchResultContainer = document.querySelector('.searchResultContainer');
+var searchResultContainer = document.querySelector('#searchResultContainer');
 var fetchButton = document.getElementById('searchBtn');
 var searchBar = document.querySelector('.searchBar')
 var apiKey = "&apiKey=67c5935d239e403fba7b639eaf1d6eaa";
