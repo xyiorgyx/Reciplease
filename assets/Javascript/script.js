@@ -1,14 +1,18 @@
 var searchResultContainer = document.querySelector('#searchResultContainer');
-var fetchButton = document.getElementById('searchBtn');
-var searchBar = document.querySelector('.searchBar')
+var searchButton = document.getElementById('searchBtn');
+var searchBar = document.querySelector('.searchBar');
 var apiKey = "&apiKey=67c5935d239e403fba7b639eaf1d6eaa";
-// var userInput = searchBar.value;
+var georgesApiKey = "&apiKey=1309e9b059aa45948273416e525ab69c";
+var search = document.getElementById('default-search');
+
 function handleUserInput() {
-  var searchInput = input.value
-  getRecipeId(searchInput)
+  var input = search.value
+  console.log(input);
+  getRecipeId(input)
 }
-function getRecipeId(searchInput) {
-  var requestUrl = 'https://api.spoonacular.com/recipes/complexSearch?query=' + 'pasta' + apiKey + '&number=20';
+
+function getRecipeId(input) {
+  var requestUrl = 'https://api.spoonacular.com/recipes/complexSearch?query=' + input + georgesApiKey + '&number=20';
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -17,7 +21,7 @@ function getRecipeId(searchInput) {
       var recipeNameArray = [data.results[0], data.results[1], data.results[2], data.results[3], data.results[4], data.results[5], data.results[6],
       data.results[7], data.results[8], data.results[9], data.results[10], data.results[11], data.results[12], data.results[13], data.results[14], data.results[15],
       data.results[16], data.results[17], data.results[18], data.results[19]]
-      var recipeId = data.results[0].id;
+
       for (let i = 0; i < recipeNameArray.length; i++) {
         var recipeTitle = recipeNameArray[i].title;
         var recipePic = recipeNameArray[i].image;
@@ -27,11 +31,6 @@ function getRecipeId(searchInput) {
         var liRecipeTitle = document.createElement('li');
         var liRecipePic = document.createElement('li');
         var liRecipeId = document.createElement('li');
-
-        // liTemp.setAttribute('class', 'list-group-item');
-        // liWind.setAttribute('class', 'list-group-item');
-        // liHumid.setAttribute('class', 'list-group-item');
-        // liDate.setAttribute('class', 'list-group-item');
 
         liRecipeTitle.textContent = recipeTitle
         liRecipePic.textContent = recipePic
@@ -61,3 +60,5 @@ getRecipeId();
 
 // need to add buttons
 // make a function that takes 
+
+searchButton.addEventListener('click', handleUserInput);
