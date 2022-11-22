@@ -22,6 +22,24 @@ function getRecipeId(searchInput) {
         var recipeTitle = recipeNameArray[i].results.title;
         var recipePic = recipeNameArray[i].results.image;
         var recipeId = recipeNameArray[i].results.id;
+
+        var div = document.createElement('div');
+        var liRecipeTitle = document.createElement('li');
+        var liRecipePic = document.createElement('li');
+        var liRecipeId = document.createElement('li');
+
+        // liTemp.setAttribute('class', 'list-group-item');
+        // liWind.setAttribute('class', 'list-group-item');
+        // liHumid.setAttribute('class', 'list-group-item');
+        // liDate.setAttribute('class', 'list-group-item');
+
+        liRecipeTitle.textContent = recipeTitle
+        liRecipePic.textContent = recipePic
+        liRecipeId.textContent = recipeId
+
+        // div.setAttribute('class', 'col-2')
+        div.append(liDate, liTemp, liWind, liHumid)
+        searchResultContainer.append(div)
       }
     })
 }
