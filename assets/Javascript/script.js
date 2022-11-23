@@ -8,6 +8,10 @@ var davidsApiKey = "&apiKey=fdec5f97efd148e4829c9cad588a4666";
 
 function handleUserInput(event) {
   event.preventDefault();
+  var collection = document.querySelectorAll('li');
+  for (let i = 0; i < collection.length; i++) {
+    collection[i].remove();
+  }
   var input = document.getElementById('default-search').value;
   getRecipeId(input)
 }
@@ -42,6 +46,7 @@ function getRecipeId(input) {
       }
     })
 }
+
 getRecipeId();
 
 function getRecipeApi(recipeId) {
