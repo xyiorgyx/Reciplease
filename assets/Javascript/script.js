@@ -33,9 +33,14 @@ function getRecipeId(input) {
         var recipeId = recipeNameArray[i].id;
 
         var div = document.createElement('div');
-        var liRecipeTitle = document.createElement('li');
+        var liRecipeTitle = document.createElement('a');
+        // liRecipeTitle.href = "index2.html"
+        liRecipeTitle.setAttribute('data-recipeId', recipeId)
+        liRecipeTitle.classList.add('titleId')
         var liRecipePic = document.createElement('li');
         var liRecipeId = document.createElement('li');
+        // var recipeTitleLink = document.createElement('a href="index2.html"')
+        //have the fetch id run on the click
 
         liRecipeTitle.textContent = recipeTitle
         liRecipePic.textContent = recipePic
@@ -45,13 +50,19 @@ function getRecipeId(input) {
         searchResultContainer.append(div)
       }
     })
+
 }
 
 getRecipeId();
 
-function getRecipeApi(recipeId) {
+function userSelectRecipe(event) {
+  if (!event.target.matches('.titleId')) {
+    return
+  }
+  var receipeEventListener = event.target.getAttribute('data-recipeId')
+  console.log(receipeEventListener);
   //make it so that the title listed on the page for the function above is able to be clicked, grabe api key, and put it in function below
-  var recipeUrl = 'https://api.spoonacular.com/recipes/' + recipeId + '/information';
+  var recipeUrl = 'https://api.spoonacular.com/recipes/' + receipeEventListener + '/information?' + georgesApiKey;
   fetch(recipeUrl)
     .then(function (response) {
       return response.json();
@@ -59,6 +70,5 @@ function getRecipeApi(recipeId) {
       console.log(data);
     })
 }
-getRecipeApi();
-
+searchResultContainer.addEventListener('click', userSelectRecipe);
 searchForm.addEventListener('submit', handleUserInput);
