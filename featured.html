@@ -1,74 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
     </script>
     <style type="text/tailwindcss">
-        @layer utilities {
-          .content-auto {
-            content-visibility: auto;
-          }
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
         }
-      </style>
+      }
+    </style>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-</head>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
 
-<body class="bg-slate-700">
+  <body class="bg-slate-700">
     <div>
-        <header class="sticky top-0 z-30 w-full px-2 py-4 shadow-blue-600/20 sm:px-4 bg-slate-800">
-            <nav class="flex text-left justify-between max-w-8xl">
-                <a href="index.html">
-                    <span class="text-4xl font-extrabold text-slate-500">Reciplease</span>
-                </a>
-                <div class="">
-                    <div class="input-group relative inline-flex flex-wrap items-stretch mb-5 rounded ">
-                        <input type="search"
-                            class="form-control relative left-8 top-2 min-w-4 w-full px-19 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
-                    </div>
-                </div>
-                <div class="flex items-center space-x-1 ">
-                    <ul class="hidden space-x-2 md:inline-flex">
-                        <li><a href="index.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Home</a></li>
-                        <li><a href="featured.html"
-                                class="px-4 py-2 font-semibold text-gray-500 rounded">Features</a></li>
-                        <li><a href="drinks.html"
-                                class="px-4 py-2 font-semibold text-gray-500 rounded">Cocktails</a></li>
-                        <li><a href="favorites.html"
-                                class="px-4 py-2 font-semibold text-gray-500 rounded">Favorites</a></li>
-                    </ul>
-                </div>
-    </div>
-    </nav>
-    </header>
-    <main>
-
+      <header
+        class="sticky top-0 z-30 w-full px-2 py-4 shadow-blue-600/20 sm:px-4 bg-slate-800"
+      >
+        <nav class="flex text-left justify-between max-w-8xl">
+          <a href="index.html">
+            <span class="text-4xl font-extrabold text-slate-500"
+              >Reciplease</span
+            >
+          </a>
+          <div class="">
+            <div
+              class="input-group relative inline-flex flex-wrap items-stretch mb-5 rounded"
+            >
+              <input
+                type="search"
+                class="form-control relative left-8 top-2 min-w-4 w-full px-19 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="button-addon2"
+              />
+            </div>
+          </div>
+          <div class="flex items-center space-x-1">
+            <ul class="hidden space-x-2 md:inline-flex">
+              <li>
+                <a
+                  href="index.html"
+                  class="px-4 py-2 font-semibold text-gray-500 rounded"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="featured.html"
+                  class="px-4 py-2 font-semibold text-gray-500 rounded"
+                  >Features</a
+                >
+              </li>
+              <li>
+                <a
+                  href="drinks.html"
+                  class="px-4 py-2 font-semibold text-gray-500 rounded"
+                  >Cocktails</a
+                >
+              </li>
+              <li>
+                <a
+                  href="favorites.html"
+                  class="px-4 py-2 font-semibold text-gray-500 rounded"
+                  >Favorites</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <main>
         <div class="featuredContainer">
-            <h1 class="text-center text-white font-extrabold text-3xl mt-12 -mb-12">Currently Featured Items</h1>
-            <section class="border-solid border-2 rounded container m-24">
-
-            </section>
+          <h1
+            class="text-center text-white font-extrabold text-3xl mt-12 -mb-12"
+          >
+            Currently Featured Items
+          </h1>
+          <section class="border-solid border-2 rounded m-12">
+            <h2
+              class="text-center text-white font-extrabold text-xl underline mb-9 mt-5"
+            >
+              Homemade Reeses Peanut Butter Cups
+            </h2>
+            <div id="featured1" class="columns-2">
+              <div>
+                <img
+                  src="./assets/images/peanutbuttercups.jpg"
+                  alt="peanut butter cups"
+                  class="pl-5"
+                />
+              </div>
+              <div>
+                <h3
+                  class="text-center text-white font-extrabold text-xl underline break-before-column"
+                >
+                  Ingredients:
+                </h3>
+                <h2 class="text-center text-white text-m mb-2">(30)</h2>
+                <div class="columns-2 mb-5">
+                  <ul>
+                    <li class="list-disc list-inside text-white font-bold">
+                      3 tbsps butter
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      ½ cup graham cracker crumbs
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      2 cups milk chocolate chips
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      6 tbsps peanut butter
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      1 cup powdered sugar
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      2 cups semi-sweet chocolate chips
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h2
+                    class="text-center text-white font-extrabold text-xl underline mb-2"
+                  >
+                    Equipment:
+                  </h2>
+                  <div class="columns-2">
+                    <ul>
+                      <li class="list-disc text-white font-bold list-inside">
+                        muffin liners
+                      </li>
+                      <li class="list-disc text-white font-bold list-inside">
+                        microwave
+                      </li>
+                      <li class="list-disc text-white font-bold list-inside">
+                        blender
+                      </li>
+                      <li class="list-disc text-white font-bold list-inside">
+                        bowl
+                      </li>
+                      <li class="list-disc text-white font-bold list-inside">
+                        frying pan
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <h3 class="text-center text-white font-extrabold text-xl">
+                Instructions:
+              </h3>
+              <ul>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Mix 1 cup semi-sweet and 1 cup milk chocolate chips in a
+                  microwavable bowl and melt in the microwave using 30 second
+                  intervals
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Grease pan generously with shortening (you can use the daisy
+                  pan I used or cupcake liners to get that crinkled effect
+                  around the edges)
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Fill cavities up 1/3 of the way with the melted chocolate and
+                  place in freezer to chill for about 5 minutes
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Prepare peanut butter filling by first melting peanut butter
+                  and butter together for about 20 seconds in the microwave
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Mix melted peanut butter and butter with sugar and graham
+                  cracker crumbs. I had left my mixer at home so I just used my
+                  hands for this part (if the filling ends up being too crumbly,
+                  try adding more melted butter and peanut butter)
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Remove pan from freezer and spoon peanut butter mixture onto
+                  each chocolate layer, making sure not to fill it up to the
+                  edges so that your top layer of chocolate can drip down and
+                  form the sides
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Mix and melt remaining chocolate chips and pour over the
+                  peanut butter so that it fills in the gaps on the sides and is
+                  even on top
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Refrigerate for about 30 minutes before serving/gorging
+                </li>
+              </ul>
+            </div>
+            <h2
+              class="text-center text-white font-extrabold text-xl underline mb-9 mt-5"
+            >
+              Spice-Rubbed Lemon Barbecue Salmon
+            </h2>
+            <div id="featured1" class="columns-2">
+              <div>
+                <img
+                  src="./assets/images/bbqsalmon.jpg"
+                  alt="lemon bbq salmon"
+                  class="pl-5"
+                />
+              </div>
+              <div>
+                <h3
+                  class="text-center text-white font-extrabold text-xl underline break-before-column"
+                >
+                  Ingredients:
+                </h3>
+                <h2 class="text-center text-white text-m mb-2">(2 servings)</h2>
+                <div class="columns-2 mb-5">
+                  <ul>
+                    <li class="list-disc list-inside text-white font-bold">
+                      2 tsps barbecue sauce
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      2 Tbsps barbecue seasoning
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      1 tsp hoisin sauce
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      2 tsps honey
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      1 lemon
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      12 ouncedry salmon fillets
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      some sea salt
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h2
+                    class="text-center text-white font-extrabold text-xl underline mb-2"
+                  >
+                    Equipment:
+                  </h2>
+                  <div class="columns-2">
+                    <ul>
+                      <li class="list-disc text-white font-bold list-inside">
+                        baking sheet
+                      </li>
+                      <li class="list-disc text-white font-bold list-inside">
+                        broiler
+                      </li>
+                      <li class="list-disc text-white font-bold list-inside">
+                        bowl
+                      </li>
+                      <li class="list-disc text-white font-bold list-inside">
+                        aluminum foil
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <h3 class="text-center text-white font-extrabold text-xl">
+                Instructions:
+              </h3>
+              <ul>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Place the salmon fillets on a greased, foil-lined baking
+                  sheet.
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Rub the top of the salmon with the barbecue seasoning. Let sit
+                  for 10 minutes while you preheat the broiler.
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Place the baking sheet 4" - 6" from the heating element and
+                  broil for 6 - 8 minutes, until cooked through.
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Remove from the broiler and let sit 5 minutes.
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Combine the sauce ingredients (barbecue sauce, hoisin sauce,
+                  honey and zest of 1/2 lemon) in a small bowl.
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Spoon the sauce into a small ziplock bag and squeeze down to
+                  the corner of the bag. Cut off a very small portion of the
+                  corner of the bag and squeeze the sauce generously over the
+                  salmon.
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Serve with a lemon wedge from the other half of the lemon.
+                </li>
+              </ul>
+            </div>
+            <h2
+              class="text-center text-white font-extrabold text-xl underline mb-9 mt-5"
+            >
+              Cranberry Margarita
+            </h2>
+            <div id="featured1" class="columns-2">
+              <div>
+                <img
+                  src="./assets/images/cranberrymargarita.jpg"
+                  alt="cranberry margarita"
+                  class="pl-5"
+                />
+              </div>
+              <div>
+                <h3
+                  class="text-center text-white font-extrabold text-xl underline break-before-column"
+                >
+                  Ingredients:
+                </h3>
+                <h2 class="text-center text-white text-m mb-2">(6 servings)</h2>
+                <div class="columns-2 mb-5">
+                  <ul>
+                    <li class="list-disc list-inside text-white font-bold">
+                      16 ounces fresh cranberries
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      3 ounces grand marnier
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      1 cup orange juice
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      some light rice syrup
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      1 cup sugar
+                    </li>
+                    <li class="list-disc text-white font-bold list-inside">
+                      9 ounce tequila
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h2
+                    class="text-center text-white font-extrabold text-xl underline mb-2"
+                  >
+                    Equipment:
+                  </h2>
+                  <div class="columns-2">
+                    <ul>
+                      <li class="list-disc text-white font-bold list-inside">
+                        wax paper
+                      </li>
+                      <li class="list-disc text-white font-bold list-inside">
+                        sauce pan
+                      </li>
+                      <li class="list-disc text-white font-bold list-inside">
+                        blender
+                      </li>
+                      <li class="list-disc text-white font-bold list-inside">
+                        skewers
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <h3 class="text-center text-white font-extrabold text-xl">
+                Instructions:
+              </h3>
+              <ul>
+                <li class="list-decimal text-white list-inside mb-2">
+                  In a saucepan over medium heat, melt the cup of sugar in the
+                  orange juice. Add the cranberries, reserving some for the
+                  skewers, and cook over low heat for 10 minutes. Set aside and
+                  let it cool. Blend cranberries in a blender, then strain to
+                  make the puree
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  In a shaker add crushed ice, 1 1/2 ounces of tequila, 1/2
+                  ounce of Grand Marnier, 2 ounces of cranberry puree and shake
+                  to mix.
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Skewer several cranberries onto 10 skewer sticks but leave
+                  enough skewer exposed on one end. Lightly brush each cranberry
+                  skewer with Karo syrup and then sprinkle extra sugar over the
+                  cranberry skewers. Place the cranberry swizzle sticks on wax
+                  paper and place in the freezer to set.
+                </li>
+                <li class="list-decimal text-white list-inside mb-2">
+                  Pour drink into a sugar rimmed martini glass. Add a cranberry
+                  swizzle stick for garnish.
+                </li>
+              </ul>
+            </div>
+          </section>
         </div>
-    </main>
-    <footer></footer>
+      </main>
     </div>
-</body>
-
+  </body>
 </html>
