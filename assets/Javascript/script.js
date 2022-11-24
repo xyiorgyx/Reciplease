@@ -22,7 +22,6 @@ function getRecipeId(input) {
     .then(function (response) {
       return response.json();
     }).then(function (data) {
-      console.log(data);
       var recipeNameArray = [data.results[0], data.results[1], data.results[2], data.results[3], data.results[4], data.results[5], data.results[6],
       data.results[7], data.results[8], data.results[9], data.results[10], data.results[11], data.results[12], data.results[13], data.results[14], data.results[15],
       data.results[16], data.results[17], data.results[18], data.results[19]]
@@ -34,19 +33,14 @@ function getRecipeId(input) {
 
         var div = document.createElement('div');
         var liRecipeTitle = document.createElement('a');
-        // liRecipeTitle.href = "index2.html"
         liRecipeTitle.setAttribute('data-recipeId', recipeId)
         liRecipeTitle.classList.add('titleId')
-        var liRecipePic = document.createElement('li');
-        var liRecipeId = document.createElement('li');
-        // var recipeTitleLink = document.createElement('a href="index2.html"')
-        //have the fetch id run on the click
+        // var liRecipePic = document.createElement('li');
 
         liRecipeTitle.textContent = recipeTitle
-        liRecipePic.textContent = recipePic
-        liRecipeId.textContent = recipeId
+        // liRecipePic.textContent = recipePic
 
-        div.append(liRecipeTitle, liRecipePic, liRecipeId)
+        div.append(liRecipeTitle)
         searchResultContainer.append(div)
       }
     })
@@ -60,14 +54,27 @@ function userSelectRecipe(event) {
     return
   }
   var receipeEventListener = event.target.getAttribute('data-recipeId')
-  console.log(receipeEventListener);
-  //make it so that the title listed on the page for the function above is able to be clicked, grabe api key, and put it in function below
+  // console.log(receipeEventListener);
   var recipeUrl = 'https://api.spoonacular.com/recipes/' + receipeEventListener + '/information?' + georgesApiKey;
   fetch(recipeUrl)
     .then(function (response) {
       return response.json();
     }).then(function (data) {
-      console.log(data);
+      // console.log(data);
+      var title = data.title;
+      var image = data.image;
+      var summary = data.summary;
+      var recipeSteps = data.instructions;
+      var ingredientsArray = data.extendedIngredients;
+      for (let index = 0; index < ingredientsArray.length; index++) {
+        const ingredients = ingredientsArray[index];
+        console.log(ingredients)
+      }
+      console.log(title);
+      console.log(image);
+      console.log(summary);
+      console.log(recipeSteps);
+      console.log(ingredientsArray);
     })
 }
 searchResultContainer.addEventListener('click', userSelectRecipe);
