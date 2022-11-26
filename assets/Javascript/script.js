@@ -1,4 +1,5 @@
 var searchResultContainer = document.querySelector('#searchResultContainer');
+var recipeContainer = document.querySelector('#recipeContainer');
 var searchButton = document.getElementById('searchBtn');
 var searchForm = document.getElementById('search-form');
 var searchBar = document.querySelector('.searchBar');
@@ -61,21 +62,39 @@ function userSelectRecipe(event) {
     .then(function (response) {
       return response.json();
     }).then(function (data) {
-      // console.log(data);
+      console.log(data);
       var title = data.title;
-      var image = data.image;
+      var recipeImage = data.image;
       var summary = data.summary;
       var recipeSteps = data.instructions;
       var ingredientsArray = data.extendedIngredients;
       for (let index = 0; index < ingredientsArray.length; index++) {
         const ingredients = ingredientsArray[index];
         console.log(ingredients)
+
+        //removing the previous data for the recipe selections
+        $('#searchResultContainer').remove();
       }
-      console.log(title);
-      console.log(image);
-      console.log(summary);
-      console.log(recipeSteps);
-      console.log(ingredientsArray);
+      var p = document.createElement('p');
+      var h2 = document.createElement('h2')
+      var image = document.createElement('image')
+
+      var liRecipeInformation = document.createElement('p');
+      liRecipeInformation.textContent = recipeSteps
+      titleForRecipe = title
+      image.setAttribute('src', recipeImage);
+
+      h2.append(titleForRecipe)
+      image.append(recipeImage)
+      p.append(summary)
+      p.append(liRecipeInformation)
+
+
+      recipeContainer.append(h2, image, p)
+      // console.log(title);
+      // console.log(summary);
+      // console.log(recipeSteps);
+
     })
 }
 searchResultContainer.addEventListener('click', userSelectRecipe);
