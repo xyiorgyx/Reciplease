@@ -75,7 +75,6 @@ function userSelectRecipe(event) {
       console.log(image);
       console.log(summary);
       console.log(recipeSteps);
-      console.log(ingredientsArray);
     })
 }
 searchResultContainer.addEventListener('click', userSelectRecipe);
