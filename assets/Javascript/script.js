@@ -1,4 +1,5 @@
 var searchResultContainer = document.querySelector('#searchResultContainer');
+var recipeContainer = document.querySelector('#recipeContainer');
 var searchButton = document.getElementById('searchBtn');
 var searchForm = document.getElementById('search-form');
 var searchBar = document.querySelector('.searchBar');
@@ -70,11 +71,21 @@ function userSelectRecipe(event) {
       for (let index = 0; index < ingredientsArray.length; index++) {
         const ingredients = ingredientsArray[index];
         console.log(ingredients)
+
+        $('#searchResultContainer').remove();
       }
+      var div = document.createElement('div');
+
+      var liRecipeInformation = document.createElement('ol');
+      liRecipeInformation.textContent = recipeSteps
+
+      div.append(liRecipeInformation)
+      recipeContainer.append(div)
       console.log(title);
       console.log(image);
       console.log(summary);
       console.log(recipeSteps);
+
     })
 }
 searchResultContainer.addEventListener('click', userSelectRecipe);
