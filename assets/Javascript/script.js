@@ -62,9 +62,9 @@ function userSelectRecipe(event) {
     .then(function (response) {
       return response.json();
     }).then(function (data) {
-      // console.log(data);
+      console.log(data);
       var title = data.title;
-      var image = data.image;
+      var recipeImage = data.image;
       var summary = data.summary;
       var recipeSteps = data.instructions;
       var ingredientsArray = data.extendedIngredients;
@@ -72,19 +72,28 @@ function userSelectRecipe(event) {
         const ingredients = ingredientsArray[index];
         console.log(ingredients)
 
+        //removing the previous data for the recipe selections
         $('#searchResultContainer').remove();
       }
-      var div = document.createElement('div');
+      var p = document.createElement('p');
+      var h2 = document.createElement('h2')
+      var image = document.createElement('image')
 
-      var liRecipeInformation = document.createElement('ol');
+      var liRecipeInformation = document.createElement('p');
       liRecipeInformation.textContent = recipeSteps
+      titleForRecipe = title
+      image.setAttribute('src', recipeImage);
 
-      div.append(liRecipeInformation)
-      recipeContainer.append(div)
-      console.log(title);
-      console.log(image);
-      console.log(summary);
-      console.log(recipeSteps);
+      h2.append(titleForRecipe)
+      image.append(recipeImage)
+      p.append(summary)
+      p.append(liRecipeInformation)
+
+
+      recipeContainer.append(h2, image, p)
+      // console.log(title);
+      // console.log(summary);
+      // console.log(recipeSteps);
 
     })
 }
