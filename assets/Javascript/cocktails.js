@@ -22,15 +22,21 @@ function displayCocktail(data) {
 
     const cocktail = data.drinks[i];
     const cocktailDiv = document.getElementById("cocktail");
+    const newDiv = document.createElement('div')
+    cocktailDiv.append(newDiv)
     const cocktailName = cocktail.strDrink;
     const heading = document.createElement("h1");
     heading.innerHTML = cocktailName;
-    cocktailDiv.appendChild(heading);
+    newDiv.appendChild(heading);
     const cocktailImg = document.createElement("img");
     cocktailImg.src = cocktail.strDrinkThumb;
-    cocktailDiv.appendChild(cocktailImg);
+    newDiv.appendChild(cocktailImg);
     const cocktailIngredients = document.createElement("ul");
-    cocktailDiv.appendChild(cocktailIngredients);
+    newDiv.appendChild(cocktailIngredients);
+    const directions = document.createElement('p');
+    directions.innerHTML = cocktail.strInstructions;
+    newDiv.appendChild(directions);
+
     
     const getIngredients = Object.keys(cocktail)
         .filter(function (ingredient) {
@@ -49,7 +55,23 @@ function displayCocktail(data) {
         listItem.innerHTML = value;
         cocktailIngredients.appendChild(listItem);
     }
-}
-}
 
-userInput.addEventListener('submit', displayCocktail)
+//     const getIngredients = Object.keys(cocktail)
+//     .filter(function (ingredient) {
+//         return ingredient.indexOf("strIngredient") == 0;
+//     })
+//     .reduce(function (ingredients, ingredient) {
+//         if (cocktail[ingredient] != null) {
+//             ingredients[ingredient] = cocktail[ingredient];
+//         }
+//         return ingredients;
+//     }, {});
+
+// for (let key in getIngredients) {
+//     let value = getIngredients[key];
+//     listItem = document.createElement("li");
+//     listItem.innerHTML = value;
+//     cocktailIngredients.appendChild(listItem);
+// }
+}
+}

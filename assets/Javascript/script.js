@@ -80,3 +80,4 @@ function userSelectRecipe(event) {
 }
 searchResultContainer.addEventListener('click', userSelectRecipe);
 searchForm.addEventListener('submit', handleUserInput);
+

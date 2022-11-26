@@ -1,3 +1,4 @@
+
 #overlay {
     position: fixed;
     top: 0;
@@ -6,9 +7,15 @@
     height: 100%;
     z-index: -1;
   }
+  #cocktail div {
+    margin: 35px;
+    width: 20%;
+  }
+
   #cocktail {
     margin-top: 100px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     max-width: 100%;
     text-align: center;
@@ -19,12 +26,13 @@
   #cocktail h1 {
     margin: 0 0 15px 0;
     text-transform: uppercase;
+    font-size: x-large;
 
   }
   #cocktail img {
     margin: 30px;
     max-width: 300px;
-    border: 6px solid #fff;
+    border: 6px solid  whitesmoke  ;
     border-radius: 150px;
   }
   #cocktail ul {
@@ -39,4 +47,5 @@
   #cocktail li:not(:last-of-type) {
     border-bottom: 1px solid #fff;
   }
+ 
 
