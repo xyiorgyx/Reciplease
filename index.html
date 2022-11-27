@@ -2,77 +2,77 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                    }
-                }
-            }
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
         }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
           .content-auto {
             content-visibility: auto;
           }
         }
       </style>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body class="bg-slate-700">
-    <div>
-        <header class="sticky top-0 z-30 w-full px-2 py-4 shadow-blue-600/20 sm:px-4 bg-slate-800">
-          <nav class="flex justify-between max-w-8xl">
-            <a href="index.html">
-              <span class="text-4xl font-extrabold text-slate-500">Reciplease</span>
-            </a>
-            <div class="box-border h-14 w-80 ">
-              <form>
-                <label for="default-search"
-                  class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-                <div class="relative ">
-                  <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                    </svg>
-                  </div>
-                  <input type="search" id="default-search"
-                    class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Search" required>
-                  <button type="submit" id='searchBtn'
-                    class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
-                </div>
-              </form>
+  <div>
+    <header class="sticky top-0 z-30 w-full px-2 py-4 shadow-blue-600/20 sm:px-4 bg-slate-800">
+      <nav class="flex justify-between max-w-8xl">
+        <a href="index.html">
+          <span class="text-4xl font-extrabold text-slate-500">Reciplease</span>
+        </a>
+        <div class="box-border h-14 w-80 ">
+          <form>
+            <label for="default-search"
+              class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+            <div class="relative ">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </div>
+              <input type="search" id="default-search"
+                class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Search" required>
+              <button type="submit" id='searchBtn'
+                class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
             </div>
-            <div class="flex items-center space-x-1 ">
-              <ul class="hidden space-x-2 md:inline-flex">
-                <li><a href="index.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Home</a></li>
-                <li><a href="featured.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Features</a>
-                </li>
-                <li><a href="drinks.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Drinks</a>
-                </li>
-                <li><a href="favorites.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Favorites</a>
-                </li>
-              </ul>
-            </div>
-      </div>
-      </nav>
-    <section class="modal">
-        <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-            <!--
+          </form>
+        </div>
+        <div class="flex items-center space-x-1 ">
+          <ul class="hidden space-x-2 md:inline-flex">
+            <li><a href="index.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Home</a></li>
+            <li><a href="featured.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Features</a>
+            </li>
+            <li><a href="drinks.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Drinks</a>
+            </li>
+            <li><a href="favorites.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Favorites</a>
+            </li>
+          </ul>
+        </div>
+  </div>
+  </nav>
+  <section class="modal">
+    <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <!--
               Background backdrop, show/hide based on modal state.
           
               Entering: "ease-out duration-300"
@@ -82,11 +82,11 @@
                 From: "opacity-100"
                 To: "opacity-0"
             -->
-            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
-            <div class="fixed inset-0 z-10 overflow-y-auto">
-                <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                    <!--
+      <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <!--
                   Modal panel, show/hide based on modal state.
           
                   Entering: "ease-out duration-300"
@@ -96,46 +96,46 @@
                     From: "opacity-100 translate-y-0 sm:scale-100"
                     To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 -->
-                    <div
-                        class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                            <div class="sm:flex sm:items-start">
-                                <div
-                                    class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                                    <!-- Heroicon name: outline/exclamation-triangle -->
-                                    <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M12 10.5v3.75m-9.303 3.376C1.83 19.126 2.914 21 4.645 21h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 4.88c-.866-1.501-3.032-1.501-3.898 0L2.697 17.626zM12 17.25h.007v.008H12v-.008z" />
-                                    </svg>
-                                </div>
-                                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                    <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title"></h3>
-                                    <div class="mt-2">
-                                        <p class="text-sm text-gray-500"></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                            <button type="button"
-                                class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Go
-                                Back</button>
-                        </div>
-                    </div>
+          <div
+            class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+              <div class="sm:flex sm:items-start">
+                <div
+                  class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                  <!-- Heroicon name: outline/exclamation-triangle -->
+                  <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M12 10.5v3.75m-9.303 3.376C1.83 19.126 2.914 21 4.645 21h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 4.88c-.866-1.501-3.032-1.501-3.898 0L2.697 17.626zM12 17.25h.007v.008H12v-.008z" />
+                  </svg>
                 </div>
+                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                  <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title"></h3>
+                  <div class="mt-2">
+                    <p class="text-sm text-gray-500"></p>
+                  </div>
+                </div>
+              </div>
             </div>
+            <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              <button type="button"
+                class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Go
+                Back</button>
+            </div>
+          </div>
         </div>
-    </section>
-    </nav>
-    </header>
-    <main>
-
-        <div id="searchResultContainer"
-            class="text-gray-200 text-center hover:cursor-pointer text-2xl leading-loose list-none"></div>
-    </main>
-    <footer></footer>
+      </div>
     </div>
+  </section>
+  </nav>
+  </header>
+  <main>
+
+    <div id="searchResultContainer"
+      class="text-gray-200 text-center hover:cursor-pointer text-2xl leading-loose list-none"></div>
+  </main>
+  <footer></footer>
+  </div>
 </body>
 <script src="./assets/Javascript/script.js"></script>
 
