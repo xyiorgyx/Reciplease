@@ -7,7 +7,6 @@ var modal = document.querySelector('.modal');
 var apiKey = "&apiKey=67c5935d239e403fba7b639eaf1d6eaa";
 var georgesApiKey = "&apiKey=1309e9b059aa45948273416e525ab69c";
 var davidsApiKey = "&apiKey=fdec5f97efd148e4829c9cad588a4666";
-
 function handleUserInput(event) {
   event.preventDefault();
   var collection = document.querySelectorAll('li');
@@ -17,9 +16,8 @@ function handleUserInput(event) {
   var input = document.getElementById('default-search').value;
   getRecipeId(input)
 }
-
 function getRecipeId(input) {
-  var requestUrl = 'https://api.spoonacular.com/recipes/complexSearch?query=' + input + georgesApiKey + '&number=20';
+  var requestUrl = 'https://api.spoonacular.com/recipes/complexSearch?query=' + input + apiKey + '&number=20';
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -27,37 +25,30 @@ function getRecipeId(input) {
       var recipeNameArray = [data.results[0], data.results[1], data.results[2], data.results[3], data.results[4], data.results[5], data.results[6],
       data.results[7], data.results[8], data.results[9], data.results[10], data.results[11], data.results[12], data.results[13], data.results[14], data.results[15],
       data.results[16], data.results[17], data.results[18], data.results[19]]
-
       for (let i = 0; i < recipeNameArray.length; i++) {
         var recipeTitle = recipeNameArray[i].title;
         var recipePic = recipeNameArray[i].image;
         var recipeId = recipeNameArray[i].id;
-
         var div = document.createElement('div');
         var liRecipeTitle = document.createElement('a');
         liRecipeTitle.setAttribute('data-recipeId', recipeId)
         liRecipeTitle.classList.add('titleId')
         // var liRecipePic = document.createElement('li');
-
         liRecipeTitle.textContent = recipeTitle
         // liRecipePic.textContent = recipePic
-
         div.append(liRecipeTitle)
         searchResultContainer.append(div)
       }
     })
-
 }
-
 getRecipeId();
-
 function userSelectRecipe(event) {
   if (!event.target.matches('.titleId')) {
     return
   }
   var receipeEventListener = event.target.getAttribute('data-recipeId')
   // console.log(receipeEventListener);
-  var recipeUrl = 'https://api.spoonacular.com/recipes/' + receipeEventListener + '/information?' + georgesApiKey;
+  var recipeUrl = 'https://api.spoonacular.com/recipes/' + receipeEventListener + '/information?' + apiKey;
   fetch(recipeUrl)
     .then(function (response) {
       return response.json();
@@ -71,30 +62,21 @@ function userSelectRecipe(event) {
       for (let index = 0; index < ingredientsArray.length; index++) {
         const ingredients = ingredientsArray[index];
         console.log(ingredients)
-
         //removing the previous data for the recipe selections
         $('#searchResultContainer').remove();
       }
       var p = document.createElement('p');
+      var p2 = document.createElement('p');
       var h2 = document.createElement('h2')
-      var image = document.createElement('image')
-
+      var image = document.createElement('img')
       var liRecipeInformation = document.createElement('p');
       liRecipeInformation.textContent = recipeSteps
       titleForRecipe = title
       image.setAttribute('src', recipeImage);
-
       h2.append(titleForRecipe)
-      image.append(recipeImage)
-      p.append(summary)
-      p.append(liRecipeInformation)
-
-
-      recipeContainer.append(h2, image, p)
-      // console.log(title);
-      // console.log(summary);
-      // console.log(recipeSteps);
-
+      p.insertAdjacentHTML('afterbegin', summary);
+      p2.insertAdjacentHTML('afterbegin', recipeSteps);
+      recipeContainer.append(h2, image, p, p2)
     })
 }
 searchResultContainer.addEventListener('click', userSelectRecipe);
