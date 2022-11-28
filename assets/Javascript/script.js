@@ -7,28 +7,30 @@ var modal = document.querySelector('.modal');
 var apiKey = "&apiKey=67c5935d239e403fba7b639eaf1d6eaa";
 var georgesApiKey = "&apiKey=1309e9b059aa45948273416e525ab69c";
 var davidsApiKey = "&apiKey=fdec5f97efd148e4829c9cad588a4666";
+var input = document.getElementById('default-search');
+var recipeHistory = JSON.parse(localStorage.getItem('savedRecipe')) || [];
+
 function handleUserInput(event) {
   event.preventDefault();
-  var collection = document.querySelectorAll('li');
-  for (let i = 0; i < collection.length; i++) {
-    collection[i].remove();
-  }
-  var input = document.getElementById('default-search').value;
-  getRecipeId(input)
+  console.log('working');
+  getRecipeId(input.value)
 }
+
 function getRecipeId(input) {
+  searchResultContainer.classList.remove('hide')
+  recipeContainer.classList.add('hide')
   var requestUrl = 'https://api.spoonacular.com/recipes/complexSearch?query=' + input + apiKey + '&number=20';
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     }).then(function (data) {
-      var recipeNameArray = [data.results[0], data.results[1], data.results[2], data.results[3], data.results[4], data.results[5], data.results[6],
-      data.results[7], data.results[8], data.results[9], data.results[10], data.results[11], data.results[12], data.results[13], data.results[14], data.results[15],
-      data.results[16], data.results[17], data.results[18], data.results[19]]
-      for (let i = 0; i < recipeNameArray.length; i++) {
-        var recipeTitle = recipeNameArray[i].title;
-        var recipePic = recipeNameArray[i].image;
-        var recipeId = recipeNameArray[i].id;
+      console.log(data);
+
+      searchResultContainer.innerHTML = ''
+      for (let i = 0; i < data.results.length; i++) {
+        var recipeTitle = data.results[i].title;
+        var recipePic = data.results[i].image;
+        var recipeId = data.results[i].id;
         var div = document.createElement('div');
         var liRecipeTitle = document.createElement('a');
         liRecipeTitle.setAttribute('data-recipeId', recipeId)
@@ -36,12 +38,13 @@ function getRecipeId(input) {
         // var liRecipePic = document.createElement('li');
         liRecipeTitle.textContent = recipeTitle
         // liRecipePic.textContent = recipePic
+        liRecipeTitle.addEventListener('click', userSelectRecipe)
         div.append(liRecipeTitle)
         searchResultContainer.append(div)
       }
     })
 }
-getRecipeId();
+
 function userSelectRecipe(event) {
   if (!event.target.matches('.titleId')) {
     return
@@ -53,31 +56,52 @@ function userSelectRecipe(event) {
     .then(function (response) {
       return response.json();
     }).then(function (data) {
+      searchResultContainer.classList.add('hide')
+      recipeContainer.classList.remove('hide')
+      recipeContainer.innerHTML = '';
       console.log(data);
       var title = data.title;
+      getSavedresult(title)
       var recipeImage = data.image;
       var summary = data.summary;
       var recipeSteps = data.instructions;
       var ingredientsArray = data.extendedIngredients;
-      for (let index = 0; index < ingredientsArray.length; index++) {
-        const ingredients = ingredientsArray[index];
-        console.log(ingredients)
-        //removing the previous data for the recipe selections
-        $('#searchResultContainer').remove();
-      }
       var p = document.createElement('p');
       var p2 = document.createElement('p');
       var h2 = document.createElement('h2')
       var image = document.createElement('img')
       var liRecipeInformation = document.createElement('p');
-      liRecipeInformation.textContent = recipeSteps
+      liRecipeInformation.innerHTML = recipeSteps
       titleForRecipe = title
       image.setAttribute('src', recipeImage);
       h2.append(titleForRecipe)
-      p.insertAdjacentHTML('afterbegin', summary);
-      p2.insertAdjacentHTML('afterbegin', recipeSteps);
-      recipeContainer.append(h2, image, p, p2)
+      p.innerHTML = summary
+      for (let index = 0; index < ingredientsArray.length; index++) {
+        const ingredients = ingredientsArray[index];
+        console.log(ingredients)
+
+
+
+      }
+      // p2.insertAdjacentHTML('afterbegin', recipeSteps);
+      recipeContainer.append(h2, image, p, liRecipeInformation)
     })
 }
-searchResultContainer.addEventListener('click', userSelectRecipe);
+
+function getSavedresult(recipeName) {
+  console.log(recipeName);
+  //as the user clicks on the button, push the title into the empty array for local storage
+  recipeHistory.push(recipeName)
+  //will also need to create a button
+  localStorage.setItem('savedRecipe', JSON.stringify(recipeHistory))
+}
 searchForm.addEventListener('submit', handleUserInput);
+
+
+
+//create a save recipe button
+//store the recipe name in local storage
+//when the user selects the recipe name from their favorites list,
+//have it run the exact word for word title through the api, and limit the api
+//search to only one seach and have it automatically run the second function
+// by sending the data automatically all in one function
