@@ -3,6 +3,10 @@ var requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + u
 var form = document.getElementById('form');
 var submitButton = document.getElementById('submitBtn');
 const cocktailDiv = document.getElementById("cocktail");
+
+// The following code was created and edited by W3collective 
+// https://github.com/w3collective
+
 function fetchDrinks(requestUrl) {
     fetch(requestUrl)
         .then((response) => {
