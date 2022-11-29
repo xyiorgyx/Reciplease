@@ -1,5 +1,6 @@
 var searchResultContainer = document.querySelector('#searchResultContainer');
 var recipeContainer = document.querySelector('#recipeContainer');
+var recipeImageContainer = document.querySelector('#recipeImageContainer');
 var searchButton = document.getElementById('searchBtn');
 var searchForm = document.getElementById('search-form');
 var searchBar = document.querySelector('.searchBar');
@@ -71,16 +72,15 @@ function userSelectRecipe(event) {
       image.setAttribute('src', recipeImage);
       h2.append(titleForRecipe)
       p.innerHTML = summary
-      let btn = document.createElement("button");
-      btn.innerHTML = "Click Me";
-      recipeContainer.append(h2, image, p, liRecipeInformation)
-      document.appendChild(btn);
+      recipeImageContainer.append(image);
+      recipeContainer.append(h2, p, liRecipeInformation)
 
       for (let index = 0; index < ingredientsArray.length; index++) {
         const ingredients = ingredientsArray[index].original;
         var liIngredients = document.createElement('li');
         liIngredients.append(ingredients);
         recipeContainer.append(liIngredients)
+        console.log(ingredients);
       }
     })
 }
