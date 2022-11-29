@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cocktails</title>
+        <title>Drinks</title>
         <script src="https://cdn.tailwindcss.com"></script>
     
         <script>
@@ -28,6 +28,7 @@
           </style>
         <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <link rel="stylesheet" href="./assets/CSS/style.css">
     </head>
     
     <body class="bg-slate-700">
@@ -38,8 +39,8 @@
                       <span class="text-4xl font-extrabold text-slate-500">Reciplease</span>
                     </a>
                     <div class="box-border h-14 w-80 ">
-                      <form>
-                        <label for="default-search"
+                      <form id="form" method="get">
+                        <label for="search"
                           class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                         <div class="relative ">
                           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -49,10 +50,10 @@
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
                           </div>
-                          <input type="search" id="default-search"
+                          <input type="search" id="userInput"
                             class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Search" required>
-                          <button type="submit"
+                          <button type="submit" id="submitBtn" 
                             class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
                         </div>
                       </form>
@@ -62,7 +63,7 @@
                         <li><a href="index.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Home</a></li>
                         <li><a href="featured.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Features</a>
                         </li>
-                        <li><a href="drinks.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Cocktails</a>
+                        <li><a href="drinks.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Drinks</a>
                         </li>
                         <li><a href="favorites.html" class="px-4 py-2 font-semibold text-gray-500 rounded">Favorites</a>
                         </li>
@@ -73,16 +74,8 @@
         </header>
         <main>
             <h1 class="text-center text-white font-extrabold text-3xl mt-12 -mb-12">Beverages</h1>
-            <div class="drinksContainer columns-2 m-24">
-                <section class="alcoholContainer border-solid border-2 rounded">
-                    <h2 class="text-center text-white font-bold underline text-2xl">Alcoholic</h2>
-                    <!-- <section></section> -->
-                </section>
-                <section class="virginContainer border-solid border-2 rounded">
-                    <h2 class="text-center text-white font-bold underline text-2xl">Non-Alcoholic</h2>
-                    <!-- <section></section> -->
-                </section>
-            </div>
+            <div id="cocktail"></div>
+            <div id="overlay"></div>
         </main>
         <footer></footer>
         </div>
