@@ -1,21 +1,31 @@
-var userInput = document.getElementById('userInput').value
-var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}";
-
-function getApi() {
+var userInput = document.querySelector('#userInput').value;
+var requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + userInput;
+var form = document.getElementById('form');
+var submitButton = document.getElementById('submitBtn');
+const cocktailDiv = document.getElementById("cocktail");
+function fetchDrinks(requestUrl) {
     fetch(requestUrl)
-        .then(function (response) {
-            return response.json();
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("NETWORK RESPONSE ERROR");
+            }
         })
-        .then(function (data) {
+        .then(data => {
             console.log(data);
-            // for (var i = 0; i < data.length; i++) {
-            //     var listItem = document.createElement('li');
-            //     listItem.textContent = data[i].html_url;
-            //     repoList.appendChild(listItem);
-            // }
-        });
+            displayCocktail(data)
+        })
+        .catch((error) => console.error("FETCH ERROR:", error));
 }
-getApi();
+console.log(requestUrl)
+function FormSubmit(event) {
+    event.preventDefault(event);
+    cocktailDiv.innerHTML = ''
+    userInput = document.querySelector('#userInput').value
+    requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + userInput;
+    fetchDrinks(requestUrl);
+}
 
 
 
