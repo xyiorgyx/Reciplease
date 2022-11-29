@@ -17,7 +17,7 @@ function handleUserInput(event) {
 function getRecipeId(input) {
   searchResultContainer.classList.remove('hidden')
   recipeContainer.classList.add('hidden')
-  var requestUrl = 'https://api.spoonacular.com/recipes/complexSearch?query=' + input + georgesApiKey + '&number=20';
+  var requestUrl = 'https://api.spoonacular.com/recipes/complexSearch?query=' + input + davidsApiKey + '&number=20';
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -46,7 +46,7 @@ function userSelectRecipe(event) {
     return
   }
   var receipeEventListener = event.target.getAttribute('data-recipeId')
-  var recipeUrl = 'https://api.spoonacular.com/recipes/' + receipeEventListener + '/information?' + georgesApiKey;
+  var recipeUrl = 'https://api.spoonacular.com/recipes/' + receipeEventListener + '/information?' + davidsApiKey;
   fetch(recipeUrl)
     .then(function (response) {
       return response.json();
@@ -54,7 +54,6 @@ function userSelectRecipe(event) {
       searchResultContainer.classList.add('hidden')
       recipeContainer.classList.remove('hidden')
       recipeContainer.innerHTML = '';
-      // recipeContainer.empty()
       console.log(data);
       var title = data.title;
       getSavedresult(title)
@@ -65,7 +64,6 @@ function userSelectRecipe(event) {
       var p = document.createElement('p');
       var p2 = document.createElement('p');
       var h2 = document.createElement('h2');
-      var savebtn = document.createElement('button');
       var image = document.createElement('img');
       var liRecipeInformation = document.createElement('p');
       liRecipeInformation.innerHTML = recipeSteps
@@ -73,17 +71,17 @@ function userSelectRecipe(event) {
       image.setAttribute('src', recipeImage);
       h2.append(titleForRecipe)
       p.innerHTML = summary
+      let btn = document.createElement("button");
+      btn.innerHTML = "Click Me";
       recipeContainer.append(h2, image, p, liRecipeInformation)
+      document.appendChild(btn);
 
       for (let index = 0; index < ingredientsArray.length; index++) {
         const ingredients = ingredientsArray[index].original;
         var liIngredients = document.createElement('li');
-        // liIngredients.append(ingredients);
-        // recipeContainer.append(h2, image, p, liRecipeInformation)
         liIngredients.append(ingredients);
         recipeContainer.append(liIngredients)
       }
-      // recipeContainer.append(h2, image, p, liRecipeInformation)
     })
 }
 
@@ -95,8 +93,6 @@ function getSavedresult(recipeName) {
   localStorage.setItem('savedRecipe', JSON.stringify(recipeHistory))
 }
 searchForm.addEventListener('submit', handleUserInput);
-
-
 
 //create a save recipe button
 //store the recipe name in local storage
