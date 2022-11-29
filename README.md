@@ -11,7 +11,7 @@ Simply choose between our drinks page or the main page which will display food r
 
 https://github.com/xyiorgyx/Reciplease
 
-## Link to repository
+## Link to main repository
 
 https://xyiorgyx.github.io/Reciplease/
 
