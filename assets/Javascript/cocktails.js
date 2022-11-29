@@ -108,3 +108,11 @@ function displayCocktail(data) {
 fetchDrinks(requestUrl)
 form.addEventListener('submit', FormSubmit)
 submitButton.addEventListener('click', fetch)
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+>>>>>>> Stashed changes
