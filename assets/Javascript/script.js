@@ -55,6 +55,7 @@ function userSelectRecipe(event) {
       searchResultContainer.classList.add('hidden')
       recipeContainer.classList.remove('hidden')
       recipeContainer.innerHTML = '';
+      recipeImageContainer.innerHTML = '';
       console.log(data);
       var title = data.title;
       getSavedresult(title)
